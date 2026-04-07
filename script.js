@@ -94,3 +94,108 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+
+// ===== Bug cursor =====
+const bugCursor = document.getElementById('bugCursor');
+if (bugCursor) {
+  let mouseX = 0, mouseY = 0;
+  let bugX = 0, bugY = 0;
+  let angle = 0;
+  let isVisible = false;
+
+  function showBug(x, y) {
+    mouseX = x;
+    mouseY = y;
+    if (!isVisible) {
+      isVisible = true;
+      bugCursor.classList.add('visible');
+    }
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    showBug(e.clientX, e.clientY);
+  });
+
+  document.addEventListener('mouseleave', () => {
+    isVisible = false;
+    bugCursor.classList.remove('visible');
+  });
+
+  document.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    showBug(touch.clientX, touch.clientY);
+    bugX = touch.clientX;
+    bugY = touch.clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    showBug(touch.clientX, touch.clientY);
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    setTimeout(() => {
+      isVisible = false;
+      bugCursor.classList.remove('visible');
+    }, 800);
+  });
+
+  function animateBug() {
+    const dx = mouseX - bugX;
+    const dy = mouseY - bugY;
+    bugX += dx * 0.12;
+    bugY += dy * 0.12;
+
+    const speed = Math.sqrt(dx * dx + dy * dy);
+    if (speed > 1) {
+      const targetAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      const angleDiff = targetAngle - angle;
+      angle += angleDiff * 0.1;
+    }
+
+    bugCursor.style.left = bugX + 'px';
+    bugCursor.style.top = bugY + 'px';
+    bugCursor.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+
+    requestAnimationFrame(animateBug);
+  }
+  animateBug();
+}
+
+
+// ===== Experience view toggle =====
+const toggleBtns = document.querySelectorAll('.exp-toggle__btn');
+const expViews = document.querySelectorAll('.exp-view');
+
+toggleBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const view = btn.getAttribute('data-view');
+    toggleBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    expViews.forEach(v => v.classList.remove('active'));
+    document.getElementById('view-' + view).classList.add('active');
+  });
+});
+
+// ===== Accordion =====
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+accordionHeaders.forEach(header => {
+  header.addEventListener('click', () => {
+    const item = header.parentElement;
+    const isActive = item.classList.contains('active');
+
+    // Close all
+    document.querySelectorAll('.accordion-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+    });
+
+    // Open clicked if it wasn't active
+    if (!isActive) {
+      item.classList.add('active');
+      header.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
