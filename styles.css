@@ -920,7 +920,9 @@ body {
     right: 0;
     background: var(--white);
     flex-direction: column;
-    padding: 24px;
+    align-items: center;
+    padding: 20px 24px;
+    gap: 6px;
     border-bottom: 1px solid var(--gray-200);
     box-shadow: var(--shadow-md);
     transform: translateY(-100%);
@@ -935,10 +937,29 @@ body {
     pointer-events: all;
   }
 
-  .nav-link {
-    padding: 12px 16px;
+  .nav-menu li {
     width: 100%;
     text-align: center;
+  }
+
+  .nav-menu li:last-child {
+    margin-top: 6px;
+  }
+
+  .nav-menu li:last-child .lang-switch {
+    display: inline-block;
+    width: auto;
+  }
+
+  .nav-link {
+    padding: 10px 16px;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  .hero {
+    padding-top: 110px;
   }
 
   .hero-name {
