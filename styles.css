@@ -124,6 +124,22 @@ body {
   color: var(--white) !important;
 }
 
+.lang-switch {
+  font-weight: 700 !important;
+  border: 2px solid var(--primary);
+  color: var(--primary) !important;
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 1px;
+  background: transparent !important;
+}
+
+.lang-switch:hover {
+  background: var(--primary) !important;
+  color: var(--white) !important;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
