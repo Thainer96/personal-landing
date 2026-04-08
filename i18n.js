@@ -11,7 +11,7 @@ const translations = {
 
     // Hero
     heroBadge: "¡Ole mano! Disponible para nuevos proyectos",
-    heroTitle: "QA Automation Engineer · Framework Architect",
+    heroTitle: "QA Automation Engineer",
     heroDesc: "Diseño frameworks de automatización desde cero y lidero estrategias de testing E2E y APIs. +6 años convirtiendo procesos de calidad en soluciones que escalan.",
     heroCta1: "Hablemos",
     heroCta2: "Ver trayectoria",
@@ -87,7 +87,7 @@ const translations = {
 
     // Hero
     heroBadge: "Available for new projects",
-    heroTitle: "QA Automation Engineer · Framework Architect",
+    heroTitle: "QA Automation Engineer",
     heroDesc: "I design automation frameworks from scratch and lead E2E testing and API validation strategies. 6+ years turning quality processes into solutions that scale.",
     heroCta1: "Let's talk",
     heroCta2: "View experience",
