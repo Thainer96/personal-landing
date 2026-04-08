@@ -172,9 +172,15 @@ function setLanguage(lang) {
 
   // Update lang switch button
   const switchBtn = document.querySelector('.lang-switch');
+  const langFlag = document.getElementById('langFlag');
   if (switchBtn) {
-    switchBtn.textContent = t.langSwitch;
-    switchBtn.setAttribute('data-lang', lang === 'es' ? 'en' : 'es');
+    const nextLang = lang === 'es' ? 'en' : 'es';
+    switchBtn.setAttribute('data-lang', nextLang);
+    switchBtn.childNodes[0].textContent = t.langSwitch + ' ';
+    if (langFlag) {
+      langFlag.src = lang === 'es' ? 'https://flagcdn.com/w40/gb.png' : 'https://flagcdn.com/w40/co.png';
+      langFlag.alt = t.langSwitch;
+    }
   }
 }
 
