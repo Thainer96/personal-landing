@@ -15,6 +15,8 @@ const translations = {
     heroDesc: "Diseño frameworks de automatización desde cero y lidero estrategias de testing E2E y APIs. +6 años convirtiendo procesos de calidad en soluciones que escalan.",
     heroCta1: "Hablemos",
     heroCta2: "Ver trayectoria",
+    heroCvBtn: "Descargar CV",
+    heroCvFile: "cv/Thainer_Franklin_CV_ES.pdf",
     heroCard1: "Automatización E2E",
     heroCard2: "Testing de APIs",
     heroCard3: "Diseño de Frameworks",
@@ -89,6 +91,8 @@ const translations = {
     heroDesc: "I design automation frameworks from scratch and lead E2E testing and API validation strategies. 6+ years turning quality processes into solutions that scale.",
     heroCta1: "Let's talk",
     heroCta2: "View experience",
+    heroCvBtn: "Download CV",
+    heroCvFile: "cv/Thainer_Franklin_CV_EN.pdf",
     heroCard1: "E2E Automation",
     heroCard2: "API Testing",
     heroCard3: "Framework Design",
@@ -159,6 +163,12 @@ function setLanguage(lang) {
     const key = el.getAttribute('data-i18n');
     if (t[key]) el.textContent = t[key];
   });
+
+  // Update CV download link
+  const cvBtn = document.getElementById('cvDownload');
+  if (cvBtn && t.heroCvFile) {
+    cvBtn.href = t.heroCvFile;
+  }
 
   // Update lang switch button
   const switchBtn = document.querySelector('.lang-switch');

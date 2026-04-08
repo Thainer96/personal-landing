@@ -374,6 +374,14 @@ body {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.btn--download {
+  gap: 8px;
+}
+
+.btn--download i {
+  font-size: 0.85rem;
+}
+
 .hero-social {
   display: flex;
   gap: 12px;
