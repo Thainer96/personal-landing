@@ -530,7 +530,8 @@ body {
 /* ===== ABOUT ===== */
 .about-photo {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
+  padding-right: 40px;
 }
 
 .about-photo__img {
@@ -550,7 +551,7 @@ body {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr auto;
   gap: 40px;
   align-items: start;
 }
@@ -584,9 +585,11 @@ body {
 }
 
 .about-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 180px;
+  margin-top: -80px;
 }
 
 .stat-card {
@@ -1076,9 +1079,18 @@ body {
     gap: 40px;
   }
 
-  .about-photo__img {
-    width: 150px;
-    height: 150px;
+  .about-photo {
+    text-align: center;
+  }
+
+  .about-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .about-stats .stat-card {
+    flex: 1 1 calc(50% - 6px);
   }
 
   .skills-grid {
@@ -1236,8 +1248,12 @@ body {
   }
 
   .about-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .about-stats .stat-card {
+    flex: 1 1 calc(50% - 6px);
   }
 
   .education-grid {
@@ -1426,4 +1442,9 @@ body {
   object-fit: cover;
   border-radius: 2px;
   margin-left: 4px;
+}
+
+/* ===== ABOUT NETWORK BG ===== */
+#sobre-mi {
+  background: url('img/background.png') center center / cover no-repeat;
 }
